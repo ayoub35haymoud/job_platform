@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Head from 'next/head'
+import { FaBriefcase } from 'react-icons/fa'
 import { usePathname } from 'next/navigation'
 import { useAuth } from '@/hooks/auth'
 import ApplicationLogo from '@/components/ApplicationLogo'
@@ -65,6 +67,15 @@ export default function Navbar() {
                             </Link>
                         </li>
                     ))}
+                    <li>
+                        <Link
+                            href="/jobs/post"
+                            className="flex items-center gap-2 px-4 py-2 rounded-md bg-blue-600 text-white font-medium hover:bg-blue-700 transition"
+                        >
+                            <FaBriefcase className="w-5 h-5" />
+                            Post a job
+                        </Link>
+                        </li>
                     {user && (
                         <li>
                             <Link href="/dashboard">Dashboard</Link>
@@ -94,7 +105,7 @@ export default function Navbar() {
                             <DropdownButton onClick={logout}>Logout</DropdownButton>
                         </Dropdown>
                     ) : (
-                        !isLoading && (
+                        // !isLoading && (
                             <>
                                 <Link href="/login" className="text-sm text-gray-700 hover:text-blue-600">
                                     Login
@@ -106,7 +117,7 @@ export default function Navbar() {
                                     Register
                                 </Link>
                             </>
-                        )
+                        // )
                     )}
                 </div>
 
