@@ -2,10 +2,9 @@ import Footer from '@/app/partials/Footer'
 import HeroSection from '@/app/partials/HeroSection'
 import Blog from '@/app/partials/Blog'
 import LoginLinks from '@/app/LoginLinks'
-import HeroSection from './partials/HeroSection'
-import Community from './partials/Community'
-import Testimonials from './partials/Testimonials'
-import BlogSection from './partials/BlogSection'
+import Community from '@/app/partials/Community'
+import Testimonials from '@/app/partials/Testimonials'
+import BlogSection from '@/app/partials/BlogSection'
 
 
 export const metadata = {
