@@ -45,4 +45,18 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+    /**
+     * Get the job seeker associated with the user.
+     */
+    public function jobSeeker()
+    {
+        return $this->hasOne(JobSeeker::class);
+    }
+    /**
+     * Get the recruiter associated with the user.
+     */
+    public function recruiter()
+    {
+        return $this->hasOne(Recruiter::class);
+    }
 }
