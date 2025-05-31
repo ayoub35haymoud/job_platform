@@ -35,5 +35,9 @@ class Emploi extends Model
     {
         return $this->belongsTo(Recruiter::class);
     }
+    public function applications()
+    {
+        return $this->hasMany(Application::class);
+    }
 }
 

@@ -48,4 +48,16 @@ class JobSeeker extends Model
                     ->withPivot('level')
                     ->withTimestamps();
     }
+    public function applications()
+    {
+        return $this->hasMany(Application::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
 }

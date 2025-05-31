@@ -28,5 +28,12 @@ class Recruiter extends Model
     {
         return $this->hasMany(Emploi::class);
     }
+    public function subscribe(){
+        return $this->hasOne(Subscribe::class);
+    }
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class);
+    }
 }
 
