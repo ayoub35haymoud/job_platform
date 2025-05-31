@@ -1,4 +1,4 @@
- 'use client'
+'use client'
 
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
@@ -26,48 +26,19 @@ function useCountUp(target, duration = 2000) {
 export default function HeroSection() {
     useEffect(() => { window.scrollTo(0, 0) }, [])
 
-    // Count up: 0 to 12 (K+), 0 to 98 (+)
     const companies = useCountUp(12, 3000)
     const countries = useCountUp(98, 3000)
 
     return (
         <section className="relative bg-[#f7f9fb] min-h-[90vh] flex items-center overflow-hidden">
-            {/* === BACKGROUND ANIMATED CIRCLES === */}
-            <div className="absolute right-0 top-0 w-[700px] h-[700px] pointer-events-none z-0">
-                {/* Large animated gradient circle */}
-                <div className="absolute right-10 top-16 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-blue-200 via-blue-300 to-blue-100 opacity-80 animate-gradientMove"></div>
-                {/* Floating boxes */}
-                <div className="absolute right-[480px] top-[320px] z-10 animate-floatY">
-                    <div className="flex items-center gap-2 px-4 py-2 bg-white border border-blue-100 shadow-md rounded-lg">
-                        <FaUserPlus className="text-blue-600 w-5 h-5" />
-                        <span className="font-semibold text-xs text-blue-900">Upload CV</span>
-                    </div>
-                </div>
-                <div className="absolute right-[100px] top-[320px] z-10 animate-floatY2">
-                    <div className="flex items-center justify-center w-12 h-12 bg-white rounded-xl shadow-md border border-gray-100">
-                        <FaRegFilePdf className="text-blue-500 w-7 h-7" />
-                    </div>
-                </div>
-                {/* Small rotating circles */}
-                <div className="absolute right-[140px] top-[180px] w-[320px] h-[320px]">
-                    <div className="relative w-full h-full animate-spin-slow">
-                        <span className="absolute w-5 h-5 rounded-full bg-blue-400 opacity-80 left-1/2 top-0 -translate-x-1/2"></span>
-                        <span className="absolute w-3 h-3 rounded-full bg-blue-200 left-0 top-1/2 -translate-y-1/2"></span>
-                        <span className="absolute w-4 h-4 rounded-full bg-blue-500 right-0 top-2/3 -translate-y-1/2"></span>
-                        <span className="absolute w-2.5 h-2.5 rounded-full bg-blue-300 left-2/3 bottom-0 -translate-x-1/2"></span>
-                    </div>
-                </div>
-            </div>
-
-            {/* MAIN HERO CONTENT */}
-            <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-center px-4 lg:px-8 z-10 py-12 lg:py-0">
+            <div className="max-w-screen-xl mx-auto w-full flex flex-col lg:flex-row items-center px-4 md:px-8 z-10 py-12 lg:py-0">
                 {/* Left Side */}
-                <div className="flex-1 w-full pt-8 lg:pt-0">
+                <div className="flex-1 w-full pt-8 lg:pt-0 max-w-xl">
                     <div className="text-gray-600 text-base font-semibold mb-2">
                         We Have <span className="text-blue-700 font-bold">208,000+</span> Live Jobs
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-                        Find the <span className="text-blue-700">job</span> that fits<br/>your life
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
+                        Find the <span className="text-blue-700">job</span> that fits<br />your life
                     </h1>
                     <p className="text-gray-500 mb-7">
                         Type your keyword, then click search to find your perfect job.
@@ -75,23 +46,23 @@ export default function HeroSection() {
                     <form
                         className="w-full max-w-2xl mx-auto bg-white shadow-md rounded-xl p-2 sm:p-4 flex flex-col sm:flex-row gap-3 items-center mb-4"
                         onSubmit={e => e.preventDefault()}
-                        >
+                    >
                         {/* Job Title */}
                         <div className="flex items-center flex-1 bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 focus-within:border-blue-500 transition">
                             <FaSearch className="text-gray-400 mr-2 w-4 h-4" />
                             <input
-                            className="w-full bg-transparent outline-none border-none text-gray-700 text-sm"
-                            placeholder="Job title, skill, or company"
-                            type="text"
+                                className="w-full bg-transparent outline-none border-none text-gray-700 text-sm"
+                                placeholder="Job title, skill, or company"
+                                type="text"
                             />
                         </div>
                         {/* Location */}
                         <div className="flex items-center flex-1 bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 focus-within:border-blue-500 transition">
                             <FaMapMarkerAlt className="text-gray-400 mr-2 w-4 h-4" />
                             <input
-                            className="w-full bg-transparent outline-none border-none text-gray-700 text-sm"
-                            placeholder="Location (e.g. Montreal)"
-                            type="text"
+                                className="w-full bg-transparent outline-none border-none text-gray-700 text-sm"
+                                placeholder="Location (e.g. Montreal)"
+                                type="text"
                             />
                         </div>
                         {/* Button */}
@@ -102,16 +73,47 @@ export default function HeroSection() {
                             Find Jobs
                         </button>
                     </form>
-
                     <div className="text-gray-500 text-sm">
-                          <span className="font-semibold text-gray-700">Popular Searches: </span>
-                          <span>Nurse</span>, <span>Registered Nurse</span>, <span>Pharmacist</span>, <span>Personal Support Worker</span> ...
+                        <span className="font-semibold text-gray-700">Popular Searches: </span>
+                        <span>Nurse</span>, <span>Registered Nurse</span>, <span>Pharmacist</span>, <span>Personal Support Worker</span> ...
                     </div>
                 </div>
 
-                {/* Right Side (with badges) */}
-                <div className="flex-1 relative w-full flex justify-center mr-30 lg:justify-end items-center mt-10 lg:mt-0 z-20">
-                    <div className="relative">
+                {/* Right Side (Image with all background/animated elements as siblings!) */}
+                <div className="flex-1 ml-32 relative w-full flex justify-center lg:justify-end items-center mt-10 lg:mt-0 z-20 max-w-md lg:max-w-lg">
+                    {/* === Animated background and floating elements START === */}
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[370px] h-[370px] md:w-[430px] md:h-[430px] lg:w-[500px] lg:h-[500px] pointer-events-none z-0">
+                        {/* Large animated gradient circle */}
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-200 via-blue-300 to-blue-100 opacity-80 animate-gradientMove"></div>
+                        {/* Small rotating circles */}
+                        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]">
+                            <div className="relative w-full h-full animate-spin-slow">
+                                <span className="absolute w-5 h-5 rounded-full bg-blue-400 opacity-80 left-1/2 top- -translate-x-1/2"></span>
+                                <span className="absolute w-3 h-3 rounded-full bg-blue-200 left-0 top-1/2 -translate-y-1/2"></span>
+                                <span className="absolute w-4 h-4 rounded-full bg-blue-500 right-400 top-2/3 -translate-y-1/2"></span>
+                                <span className="absolute w-2.5 h-2.5 rounded-full bg-blue-600 left-2/3 bottom-0 -translate-x-1/2"></span>
+                                <span className="absolute w-2.5 h-2.5 rounded-full bg-blue-700 left-2/3 bottom-48 -translate-x-1/2"></span>
+                                <span className="absolute w-2.5 h-2.5 rounded-full bg-blue-500 left-2/3 bottom-0 -translate-x-1/2"></span>
+                            </div>
+                        </div>
+                        {/* Floating Upload CV box */}
+                        <div className="absolute left-3 top-16 md:left-1 md:top-48 animate-floatY">
+                            <div className="flex items-center gap-2 px-4 py-2 bg-white border border-blue-100 shadow-md rounded-lg">
+                               <Image src="/cv-icon.png" alt="cv" width={20} height={20}/>
+                                <span className="font-semibold text-xs text-blue-900">Upload CV</span>
+                            </div>
+                        </div>
+                        {/* Floating PDF icon */}
+                        <div className="absolute right-2 bottom-14 md:right-6 md:bottom-20 animate-floatY2">
+                            <div className="flex items-center justify-center w-12 h-12 bg-white rounded-xl shadow-md border border-gray-100">
+                                <FaRegFilePdf className="text-blue-500 w-7 h-7" />
+                            </div>
+                        </div>
+                    </div>
+                    {/* === Animated background and floating elements END === */}
+
+                    {/* Foreground: The image and badges */}
+                    <div className="relative z-10 right-20">
                         <Image
                             src="/hero.png" // Replace with your image
                             alt="Professional"
@@ -141,7 +143,7 @@ export default function HeroSection() {
                             </div>
                         </div>
                         {/* 3K+ Jobs Done badge */}
-                        <div className="absolute -bottom-8  -right-1 bg-white shadow-xl rounded-xl px-4  py-2 flex items-center gap-2 select-none">
+                        <div className="absolute -bottom-8  -right-0 bg-white shadow-xl rounded-xl px-9  py-2 flex items-center gap-2 select-none">
                             <div className="flex -space-x-2">
                                 <Image src="/u-1.jpg" alt="" width={28} height={28} className="rounded-full border-2 border-white" />
                                 <Image src="/u-2.jpg" alt="" width={28} height={28} className="rounded-full border-2 border-white" />
