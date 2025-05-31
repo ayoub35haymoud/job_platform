@@ -1,5 +1,7 @@
+import Footer from '@/app/partials/Footer'
+import HeroSection from '@/app/partials/HeroSection'
+import Blog from '@/app/partials/Blog'
 import LoginLinks from '@/app/LoginLinks'
-import HeroSection from './partials/HeroSection'
 
 export const metadata = {
     title: 'Laravel',
@@ -10,6 +12,8 @@ const Home = () => {
         <>      
             <LoginLinks />  
             <HeroSection/>  
+            <Blog/>
+            <Footer/>
         </>
     )
 }
