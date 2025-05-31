@@ -17,7 +17,6 @@ const RootLayout = ({ children }) => {
         </html>
     )
 }
-
 export const metadata = {
     title: 'Laravel',
 }
